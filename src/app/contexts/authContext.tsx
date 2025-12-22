@@ -34,7 +34,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     function signOut() {
         setIsloggedIn(false)
         storageState({ isLoggedIn: false })
-        router.replace("/signIn")
+        router.replace("/(public)/signIn")
     }
 
 

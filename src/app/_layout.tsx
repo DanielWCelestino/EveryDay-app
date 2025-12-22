@@ -6,7 +6,7 @@ export default function Layout() {
         <AuthProvider>
             <Stack>
                 <Stack.Screen name="(protected)" options={{ headerShown: false, animation:"none"}} />
-                <Stack.Screen name="signIn" options={{ title: "Entrar",animation:"none" }} />
+                <Stack.Screen name="(public)" options={{ title: "Entrar",animation:"none" }} />
             </Stack>
         </AuthProvider>
     )
