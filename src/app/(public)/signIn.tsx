@@ -1,10 +1,13 @@
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Button from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
 
 export default function SignIn() {
-    const { signIn } = useAuth()
+    const { signIn } = useAuth();
+    const router = useRouter();
+
 
 
     const [username, setUsername] = useState('');
@@ -42,7 +45,7 @@ export default function SignIn() {
                     style={styles.input}
                 />
 
-                
+
             </View>
 
             <Button
@@ -53,7 +56,7 @@ export default function SignIn() {
             <View style={styles.messagem}>
                 <Text style={styles.novo}>Você é novo por aqui?</Text>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>router.push("/cadastro")}>
                     <Text style={styles.cadastre}>Cadastre-se</Text>
                 </TouchableOpacity>
             </View>
