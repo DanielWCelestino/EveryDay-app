@@ -1,12 +1,5 @@
-import { Button, View } from "react-native"
-import { useAuth } from "../hooks/useAuth"
+import { Redirect } from "expo-router";
 
-
-export default function Index() {
-const {signOut} = useAuth()
-    return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <Button title="Sair" onPress={signOut} />
-        </View>
-    )
+export default function ProtectedIndex() {
+  return <Redirect href="/(protected)/(tabs)/home" />;
 }

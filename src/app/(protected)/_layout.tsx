@@ -5,19 +5,20 @@ import { useAuth } from "../hooks/useAuth";
 
 
 export default function ProtectedLayout() {
-const { isLoggedIn, isReady} = useAuth()
+    const { isLoggedIn, isReady } = useAuth()
 
-if(!isReady){
-    return <ActivityIndicator style={{flex:1,justifyContent:"center",alignItems:"center"}}/>
-}
-
-    if(!isLoggedIn){
-        return <Redirect href="/(public)/signIn"/>
+    if (!isReady) {
+        return <ActivityIndicator style={{ flex: 1, justifyContent: "center", alignItems: "center" }} />
     }
-    
+
+    if (!isLoggedIn) {
+        return <Redirect href="/(public)/signIn" />
+    }
+
     return (
-        <Stack>
-            <Stack.Screen name="index" options={{ title: "home" }}/>
-    </Stack>
+        <Stack screenOptions={{ headerShown: false }}>
+
+            <Stack.Screen name="index" options={{ title: "home" }} />
+        </Stack>
     )
 }
