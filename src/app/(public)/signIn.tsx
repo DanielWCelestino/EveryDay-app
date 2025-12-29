@@ -1,7 +1,9 @@
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Checkbox } from '../components/Checkbox';
 import { useAuth } from "../hooks/useAuth";
+
 
 export default function SignIn() {
     const { signIn } = useAuth();
@@ -11,6 +13,8 @@ export default function SignIn() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(false);
+
 
 
     return (
@@ -45,6 +49,12 @@ export default function SignIn() {
                     onChangeText={setPassword}
                     style={styles.input}
                 />
+
+                <Checkbox
+                    label="Lembrar de mim"
+                    checked={remember}
+                    onChange={setRemember}
+                />
             </View>
             <TouchableOpacity style={styles.button} onPress={signIn}>
                 <Text style={styles.buttonText}>Entrar</Text>
@@ -54,6 +64,9 @@ export default function SignIn() {
             <TouchableOpacity style={styles.buttonGoogle} onPress={() => console.log("Entrar com a conta google foi acionado")}>
                 <Text style={styles.buttonTextGoogle}>Entrar com o Google</Text>
             </TouchableOpacity>
+
+
+
 
             <View style={styles.messagem}>
                 <Text style={styles.novo}>Você é novo por aqui?</Text>
@@ -97,7 +110,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         paddingHorizontal: 16,
         paddingVertical: 12,
-        marginBottom: 34,
+        marginBottom: 28,
         borderRadius: 50,
         backgroundColor: "#6d6d6dff",
     },
