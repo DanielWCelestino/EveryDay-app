@@ -45,7 +45,7 @@ export default function Home() {
 
             <View style={styles.infoContainer}>
               <Text style={styles.text}>
-                Daniel
+                Usuario
               </Text>
             </View>
 
