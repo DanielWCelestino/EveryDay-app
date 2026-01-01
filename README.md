@@ -17,6 +17,16 @@ O projeto é alinhado ao **ODS 3 da ONU – Saúde e Bem-Estar**.
 
 ---
 
+## 📱 Preview (em desenvolvimento)
+
+> A interface abaixo representa a tela inicial do aplicativo.
+> Outras telas e funcionalidades estão em desenvolvimento.
+
+![Home Screen](./assets/preview/home.png)
+
+
+---
+
 ## 🚀 Funcionalidades (em desenvolvimento)
 - Autenticação de usuários
 - Persistência de login
@@ -27,7 +37,7 @@ O projeto é alinhado ao **ODS 3 da ONU – Saúde e Bem-Estar**.
   - cronômetro
   - gráficos de desempenho
 
----
+--- 
 
 ## 🛠️ Tecnologias utilizadas
 - **React Native**
