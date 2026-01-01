@@ -1,21 +1,45 @@
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export function CardAtividade() {
+type Props = {
+  title: string;
+  subtitle?: string;
+  time: number;
+  icon: keyof typeof Ionicons.glyphMap;
+  onDelete?: () => void;
+};
+export function CardAtividade({
+  title,
+  subtitle,
+  time,
+  icon,
+  onDelete,
+}: Props) {
   return (
     <View style={styles.card}>
-      <Ionicons name="people" size={26} color="#f2941f" />
+      <Ionicons
+        name={icon}
+        size={26}
+        color={"#f2941f"}
+      />
 
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Encontro com amigos</Text>
-        <Text style={styles.subtitle}>Café com João e Ana</Text>
+        <Text style={styles.title}>{title}</Text>
+        {subtitle && (
+          <Text style={styles.subtitle}>{subtitle}</Text>
+        )}
       </View>
 
-      <Text style={styles.time}>45 min</Text>
+      <Text style={styles.time}>{time} min</Text>
+
+      {onDelete && (
+        <TouchableOpacity onPress={onDelete} style={styles.deleteButton}>
+          <Ionicons name="trash-outline" size={20} color="#ff6b6b" />
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   card: {
@@ -50,5 +74,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "600",
     fontSize: 14,
+  },
+
+  deleteButton: {
+    marginLeft: 12,
+    padding: 4,
   },
 });

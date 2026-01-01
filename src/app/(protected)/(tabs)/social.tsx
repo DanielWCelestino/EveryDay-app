@@ -1,10 +1,33 @@
 import { CardPages } from "@/app/components/CardPages";
 import { BoxSocial } from "@/app/components/social/BoxSocial";
 import { CardAtividade } from "@/app/components/social/CardAtividade";
+import { ModalSocial } from "@/app/components/social/ModalSocial";
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Social() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // estado das atividades
+  const [atividades, setAtividades] = useState<
+    {
+      title: string;
+      subtitle?: string;
+      time: number;
+      icon: keyof typeof Ionicons.glyphMap;
+    }[]
+  >([]);
+
+  // A FUNÇÃO FICA AQUI
+  function handleAddAtividade(data: {
+    title: string;
+    subtitle?: string;
+    time: number;
+    icon: keyof typeof Ionicons.glyphMap;
+  }) {
+    setAtividades((prev) => [data, ...prev]);
+  }
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -43,7 +66,7 @@ export default function Social() {
         color="#f2941f"
         icon={
           <Ionicons name="people" size={42} color="#f2941f" />
-        }/>
+        } />
 
       <View style={{
         padding: 8,
@@ -55,14 +78,33 @@ export default function Social() {
         <Text style={styles.SubTitleAtividade}>Momentos sociais resgistrados</Text>
         <View style={styles.boxAtividade}>
 
-          <CardAtividade />
-          <CardAtividade />
-          <CardAtividade />
-          <TouchableOpacity style={[styles.button, { backgroundColor: "#f2941f" }]} onPress={() => console.log("sessao social iniciada")}>
+          {atividades.map((item, index) => (
+            <CardAtividade
+              key={index}
+              title={item.title}
+              subtitle={item.subtitle}
+              time={item.time}
+              icon={item.icon}
+              onDelete={() =>
+                setAtividades((prev) =>
+                  prev.filter((_, i) => i !== index)
+                )
+              }
+            />
+          ))}
+
+
+          <TouchableOpacity style={[styles.button, { backgroundColor: "#f2941f" }]} onPress={() => setModalVisible(true)}>
             <Text style={styles.buttonText}>Iniciar sessão Social</Text>
           </TouchableOpacity>
         </View>
       </View>
+
+      <ModalSocial
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onAdd={handleAddAtividade} // ligando o modal com o cardAtividade
+      />
     </ScrollView>
   );
 }
