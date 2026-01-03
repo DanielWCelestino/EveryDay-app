@@ -4,7 +4,7 @@ import { CardAtividade } from "@/app/components/social/CardAtividade";
 import { ModalSocial } from "@/app/components/social/ModalSocial";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Social() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -30,6 +30,10 @@ export default function Social() {
   }
   return (
     <ScrollView style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="black"
+      />
       <View style={styles.header}>
         <Ionicons name="people" size={80} color="#f2941f" />
         <Text style={styles.title}> Social</Text>
@@ -38,7 +42,7 @@ export default function Social() {
       </View>
 
 
-      <View style={{ flexDirection: "row", gap: 12 }}>
+      <View style={{ flexDirection: "row", gap: 4 }}>
 
         <BoxSocial
           title="3"
@@ -113,7 +117,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 8,
-
     backgroundColor: "#000",
   },
   header: {
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderTopRightRadius: 12,
     borderTopLeftRadius: 12,
-    backgroundColor: "#222222ff"
+    backgroundColor: "#000"
   },
   title: {
     color: "#fff",

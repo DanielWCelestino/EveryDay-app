@@ -39,11 +39,11 @@ export function CardPages({
                     </View>
                     <View style={{ width: "100%", height: 1, backgroundColor: "#505050ff", margin: 8 }}></View>
 
-                    <View style={{ flexDirection: "row", gap: 250, width: "100%" }}>
+                    <View style={{ flexDirection: "row", gap: 234, width: "100%" }}>
                         <Text style={styles.planned}>
                             {hour}h {minutes} min de {plannedHours}h
                         </Text>
-                        <Text style={styles.porcentage}>
+                        <Text style={[styles.porcentage, {color: color}]}>
                             {percentage}%
                         </Text>
                     </View>
