@@ -36,7 +36,7 @@ export default function Social() {
       />
       <View style={styles.header}>
         <Ionicons name="people" size={80} color="#f2941f" />
-        <Text style={styles.title}> Social</Text>
+        <Text style={styles.title}>Social</Text>
         <View style={{ width: "40%", height: 1, backgroundColor: "#505050ff" }}></View>
         <Text style={styles.subtitle}>conexões e bem estar social</Text>
       </View>

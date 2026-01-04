@@ -13,8 +13,8 @@ export function Checkbox({ label, checked, onChange }: Props) {
       <View style={styles.container}>
         <Ionicons
           name={checked ? "checkbox" : "square-outline"}
-          size={30} // 🔥 mesmo tamanho
-          color={checked ? "#38a69d" : "#01A5B1"} // 🔥 mesmas cores
+          size={30} 
+          color={checked ? "#38a69d" : "#01A5B1"}
         />
         <Text style={styles.text}>{label}</Text>
       </View>
